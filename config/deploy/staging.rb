@@ -1,4 +1,4 @@
-set :branch,                  "staging"
+set :branch,                  "master"
 set :rails_env,               "staging"
 set :deploy_to,               "/Users/yannis/railsapps/fpb_staging"
 set :god_unicorn_config,      "/Users/yannis/railsapps/fpb_staging/current/config/unicorn_staging.god"
