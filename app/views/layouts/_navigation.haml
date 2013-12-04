@@ -1,14 +1,16 @@
-%nav.top-bar{data: "topbar"}
-  %ul.title-area
-    %li.name
-      %h1= link_to "fpb", root_path
-  %section.top-bar-section
-    %ul.right
-      %li
-        = link_to "The foundation", root_path
-      %li
-        = link_to "The award", "#"
-      %li
-        = link_to "Donations", "#"
-      %li
-        = link_to "Links", "#"
+.fixed
+  %nav.top-bar{data: "topbar"}
+    %ul.title-area
+      %li.name
+        %h1
+          = link_to "fpb", root_path, id: "nav-mini-logo"
+    %section.top-bar-section
+      %ul.right
+        %li{class: (request.path == root_path ? "active" : "")}
+          = link_to "The foundation", root_path
+        %li{class: (request.path == home_award_path ? "active" : "")}
+          = link_to "The award", home_award_path
+        %li{class: (request.path == home_donations_path ? "active" : "")}
+          = link_to "Donations", home_donations_path
+        %li{class: (request.path == home_links_path ? "active" : "")}
+          = link_to "Links", home_links_path

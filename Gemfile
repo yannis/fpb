@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem "jquery-ui-rails"
 gem 'uglifier'
 gem 'foundation-rails'
+gem 'sanitize'
 # gem 'honeypot-captcha'
 
 # gem 'devise',              github: 'plataformatec/devise'

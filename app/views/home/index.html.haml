@@ -14,22 +14,24 @@
         = image_tag "orbit/foram3.jpg", alt: "slide 3"
         / .orbit-caption
         /   This is a foram 3
-
 #content.row
   .large-9.columns
-    %dl.tabs.vertical{data: {tab: true}}
+    %dl.tabs{data: {tab: true}}
       %dd.active
         = link_to "Goal", "#goal"
       %dd
         = link_to "Legacy", "#legacy"
       %dd
         = link_to "Committee", "#committee"
-    .tabs-content.vertical
+    .tabs-content
       .content.active#goal
         %h2
           The paul Brönnimann Foundation
         %p
           La Fondation PAUL BRÖNNIMANN regroupe des personnes de l'entourage du scientifique et a pour but de promouvoir l'encouragement de la recherche dans le domaine de la micropaléontologie. Les moyens d'actions de la Fondation sont notamment les revenus du capital et les donations qui lui sont faites.
+        %p
+          Participate directly to research on Foraminifers
+          = link_to "Donate<i class='fi fi-arrow-right'></i>".html_safe, home_donations_path, class: "button button-lrg home-donate-button right"
         %p
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       .content#legacy

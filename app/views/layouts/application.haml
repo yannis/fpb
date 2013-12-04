@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "UTF-8"}
-    %title= @title || "The Paul Brönnnimann Foundation"
+    %title= yield(:title) || "The Paul Brönnnimann Foundation"
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{:name=>"author", :content=>"Yannis Jaquet"}/
@@ -13,7 +13,9 @@
     = javascript_include_tag "polyfills"
     = favicon_link_tag
   %body
-    = render "layouts/navigation"
-    = yield :layout
+    #main-content
+      = render "layouts/navigation"
+      = yield :layout
+      #root-footer
     = render "layouts/footer"
     = javascript_include_tag 'application'
