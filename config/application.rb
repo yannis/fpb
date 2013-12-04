@@ -29,7 +29,7 @@ module Fpb
     config.autoload_paths += %W( #{config.root}/lib )
 
     config.assets.paths << "#{Rails.root}/vendor/assets"
-    config.assets.paths << "#{Rails.root}/vendor/foundation-icons"
+    # config.assets.paths << "#{Rails.root}/app/assets/foundation-icons"
     config.assets.enabled = true
     config.assets.js_compressor = :uglifier
     # config.assets.js_compressor = :closure
