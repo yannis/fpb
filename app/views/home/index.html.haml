@@ -1,21 +1,27 @@
 .row
-  .large-12.columns
-    #logo
+  .large-5.columns
+    = link_to "Fondation Paul Brönnimann", root_path, id: "logo"
+  .large-7.columns
     %ul#slideshow{data: {orbit: true}}
+      / %li
+      /   = image_tag "orbit/foram1.jpg", alt: "slide 1"
+      /   / .orbit-caption
+      /   /   This is a foram
+      / %li
+      /   = image_tag "orbit/foram2.jpg", alt: "slide 2"
+      /   / .orbit-caption
+      /   /   This is a foram 2
       %li
-        = image_tag "orbit/foram1.jpg", alt: "slide 1"
-        / .orbit-caption
-        /   This is a foram
-      %li
-        = image_tag "orbit/foram2.jpg", alt: "slide 2"
-        / .orbit-caption
-        /   This is a foram 2
-      %li
-        = image_tag "orbit/foram3.jpg", alt: "slide 3"
+        = image_tag "orbit/foram4.jpg", alt: "slide 3"
         / .orbit-caption
         /   This is a foram 3
+      %li
+        = image_tag "orbit/obadia.jpg", alt: "artwork by Cyril obadia"
+        / .orbit-caption
+        /   This is a foram 3
+
 #content.row
-  .large-9.columns
+  .large-8.columns
     %dl.tabs{data: {tab: true}}
       %dd.active
         = link_to "Goal", "#goal"
@@ -80,7 +86,7 @@
               %h5 Dr. Maria Holzmann
               %p
                 Scientific advisor
-  .large-3.columns
+  .large-4.columns
     #news.panel
       %h3 Latest news
       %p

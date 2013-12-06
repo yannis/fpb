@@ -1,12 +1,8 @@
 #logo
   display: block
-  height: 74px
-  width: 254px
-  position: absolute
-  top: 20px
-  background: image-url("logo.jpg") no-repeat
-  background-size: cover
-  z-index: 100
+  @include replace-text(asset-url("logo/logo.png"))
+  background-size: contain
+  height: 250px
 
 #slideshow
   margin-bottom: 1.6184em

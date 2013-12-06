@@ -5,7 +5,7 @@
 
 $(document).foundation
   orbit:
-    animation: 'slide'
+    animation: "fade"#'slide'
     timer_speed: 5000
     pause_on_hover: true
     animation_speed: 1000
