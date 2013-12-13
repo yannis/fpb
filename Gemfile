@@ -6,7 +6,7 @@ gem 'mysql2'
 gem 'haml-rails'
 # gem 'html5-rails'
 gem 'paperclip'
-# gem 'airbrake'
+gem 'airbrake'
 gem 'bundler'
 gem "figaro"
 gem "actionview-encoded_mail_to"

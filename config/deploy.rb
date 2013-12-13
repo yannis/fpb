@@ -3,7 +3,7 @@ set :stages, %w(production staging)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 require "bundler/capistrano"
-# require 'airbrake/capistrano'
+require 'airbrake/capistrano'
 # require 'new_relic/recipes'
 default_run_options[:pty] = true  # Must be set for the password prompt
                                   # from git to work
@@ -36,6 +36,5 @@ before 'deploy:assets:precompile' do
   run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 end
 after 'deploy', 'deploy:migrate'
-# after "deploy:migrate", "deploy:cleanup"
+after "deploy:migrate", "deploy:cleanup"
 after "deploy:cleanup", "deploy:stop_reload_start"
-
