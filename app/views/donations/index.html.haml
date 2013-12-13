@@ -1,0 +1,29 @@
+- title @title
+.row
+  .large-8.columns
+    %h1= @title
+    %p
+      Si vous trouvez notre démarche positive et sympathique, vous pouvez nous soutenir en envoyant votre don à:
+    %p
+      Banque Cantonale de Genève
+      %br
+      COMPTE N° S 3100.67.84
+      %br
+      Fondation PAUL BRÖNNIMANN
+      %br
+      Muséum d'Histoire Naturelle
+      %br
+      Case postale 6434
+    %dd
+      CH-1211 Genève 6
+    %dd
+      Suisse
+      %br
+      Tél: +41 22 418 63 00
+      %br
+      Fax: +41 22 418 63 01
+  .large-4.columns
+    .panel
+      %h2 Donators
+      %dl.disc
+        = render @donations

@@ -1,16 +1,25 @@
 .fixed
-  %nav.top-bar{data: "topbar"}
+  %nav.top-bar{data: {topbar: true}}
     %ul.title-area
       %li.name
         %h1
           = link_to "fpb", root_path, id: "nav-mini-logo"
+      %li.toggle-topbar.menu-icon
+        =link_to "#" do
+          %span Menu
     %section.top-bar-section
       %ul.right
-        %li{class: (request.path == root_path ? "active" : "")}
+        %li{class: (request.path == root_path ? "has-dropdown active" : "has-dropdown")}
           = link_to "The foundation", root_path
-        %li{class: (request.path == home_award_path ? "active" : "")}
-          = link_to "The award", home_award_path
-        %li{class: (request.path == home_donations_path ? "active" : "")}
-          = link_to "Donations", home_donations_path
-        %li{class: (request.path == home_links_path ? "active" : "")}
-          = link_to "Links", home_links_path
+          %ul.dropdown
+            %li= link_to "Paul Brönnimann", home_paul_broennimann_path
+            %li= link_to "Legacy", home_legacy_path
+            %li= link_to "Committee", home_committee_path
+        %li{class: (request.path == awards_path ? "active" : "")}
+          = link_to "The award", awards_path
+        %li{class: (request.path == donations_path ? "active" : "")}
+          = link_to "Donations", donations_path
+        %li{class: (request.path == artworks_path ? "active" : "")}
+          = link_to "Artworks", artworks_path
+        %li{class: (request.path == links_path ? "active" : "")}
+          = link_to "Links", links_path

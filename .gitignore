@@ -23,3 +23,5 @@ rails
 # Ignore application configuration
 config/application.yml
 config/database.yml
+db/seeds.rb
+db/seed_files/*

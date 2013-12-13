@@ -1,0 +1,62 @@
+ActiveAdmin.register Author do
+
+
+  # See permitted parameters documentation:
+  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  #
+  # permit_params :list, :of, :attributes, :on, :model
+  #
+  # or
+  #
+  # permit_params do
+  #  permitted = [:permitted, :attributes]
+  #  permitted << :other if resource.something?
+  #  permitted
+  # end
+
+  # controller do
+  #   def permitted_params
+  #     params.permit(:author => [:first_name, :last_name, :email, :affiliation, :portrait])
+  #   end
+  # end
+  permit_params :first_name, :last_name, :email, :affiliation, :portrait
+
+  filter :first_name
+  filter :last_name
+  filter :email
+
+  index do
+    column :first_name
+    column :last_name
+    column :email
+    column :affiliation
+    column "Portrait" do |author|
+      image_tag(author.portrait.url(:thumb)) if author.portrait.present?
+    end
+    default_actions
+  end
+
+  show do |author|
+    attributes_table do
+      row :first_name
+      row :last_name
+      row :email
+      row :affiliation
+      row :portrait do
+        image_tag(author.portrait.url(:thumb)) if author.portrait.present?
+      end
+    end
+    active_admin_comments
+  end
+
+  form do |f|
+    f.inputs "Author details" do
+      f.input :first_name
+      f.input :last_name
+      f.input :email
+      f.input :affiliation
+      f.input :portrait, :hint => (f.object.portrait.present? ? f.template.image_tag(f.object.portrait.url(:thumb)) : "no portrait yet")
+    end
+    f.actions
+  end
+end

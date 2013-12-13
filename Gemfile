@@ -5,7 +5,7 @@ gem 'mysql2'
 
 gem 'haml-rails'
 # gem 'html5-rails'
-# gem 'paperclip'
+gem 'paperclip'
 # gem 'airbrake'
 gem 'bundler'
 gem "figaro"
@@ -21,7 +21,8 @@ gem 'uglifier'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 gem 'sanitize'
-# gem 'honeypot-captcha'
+gem "activeadmin",         github: 'gregbell/active_admin'
+gem 'formtastic',          github: 'justinfrench/formtastic'
 
 # gem 'devise',              github: 'plataformatec/devise'
 # gem 'responders',          github: 'plataformatec/responders'

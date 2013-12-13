@@ -1,8 +1,19 @@
 Fpb::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get "home/index"
-  get "home/award"
-  get "home/donations"
+  get "home/committee"
+  get "home/paul_broennimann"
+  get "home/legacy"
   get "home/links"
+
+  resources :donations, only: [:index]
+  resources :awards, only: [:index]
+  resources :artworks, only: [:index]
+  resources :news, only: [:index]
+  resources :links, only: [:index]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

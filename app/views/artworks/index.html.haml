@@ -1,0 +1,6 @@
+- title @title
+.row
+  .columns.large-12
+    %h1= @title
+    %ul.clearing-thumbs{data: {clearing: true}}
+      = render @artworks

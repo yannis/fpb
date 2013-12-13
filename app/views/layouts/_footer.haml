@@ -2,11 +2,25 @@
   .large-12.columns
     %hr
     .row
-      .large-6.columns
+      .large-6.columns.h-card
         %p
-          © Copyright University of Geneva
+          © Copyright Fondation
+          %span.p-name Paul Brönnimann
           = Date.current.year
+        %p.footer-address.p-adr.h-adr
+          %span.p-extended-address
+            University of Geneva
+            %br
+            Sciences III
+            %br
+            Dpt of Genetics and Evolution
+          %br
+          %span.p-street-address
+            30, Quai Ernest Ansermet
+          %span.p-street
+            CH-1211
+          %span.p-locality Geneva 4
+          %br
+          %span.p-country-name Switzerland
       .large-6.columns
-        %ul.inline-list.right
-          %li
-            = link_to "UNIGE", "http://unige.ch"
+        = link_to "UNIGE", "http://unige.ch", class: "footer-unige right"

@@ -1,0 +1,7 @@
+.panel.large-4.columns
+  %h2
+    = new.title
+    %small
+      %em published on
+      = new.published_on.to_s(:day_month_year)
+  = new.content
