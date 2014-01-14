@@ -19,17 +19,19 @@ ActiveAdmin.register Author do
   #     params.permit(:author => [:first_name, :last_name, :email, :affiliation, :portrait])
   #   end
   # end
-  permit_params :first_name, :last_name, :email, :affiliation, :portrait
+  permit_params :first_name, :last_name, :email, :affiliation, :portrait, :description
 
   filter :first_name
   filter :last_name
   filter :email
+  filter :description
 
   index do
     column :first_name
     column :last_name
     column :email
     column :affiliation
+    column :description
     column "Portrait" do |author|
       image_tag(author.portrait.url(:thumb)) if author.portrait.present?
     end
@@ -42,6 +44,7 @@ ActiveAdmin.register Author do
       row :last_name
       row :email
       row :affiliation
+      row :description
       row :portrait do
         image_tag(author.portrait.url(:thumb)) if author.portrait.present?
       end
@@ -55,6 +58,7 @@ ActiveAdmin.register Author do
       f.input :last_name
       f.input :email
       f.input :affiliation
+      f.input :affiliationdescription
       f.input :portrait, :hint => (f.object.portrait.present? ? f.template.image_tag(f.object.portrait.url(:thumb)) : "no portrait yet")
     end
     f.actions

@@ -15,8 +15,9 @@
             %li= link_to "Paul Brönnimann", home_paul_broennimann_path
             %li= link_to "Legacy", home_legacy_path
             %li= link_to "Committee", home_committee_path
-        %li{class: (request.path == awards_path ? "active" : "")}
-          = link_to "The award", awards_path
+            %li= link_to "The award", awards_path
+        %li{class: (request.path == home_grants_path ? "active" : "")}
+          = link_to "Grants", home_grants_path
         %li{class: (request.path == donations_path ? "active" : "")}
           = link_to "Donations", donations_path
         %li{class: (request.path == artworks_path ? "active" : "")}

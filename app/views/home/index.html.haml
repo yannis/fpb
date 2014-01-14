@@ -1,28 +1,31 @@
 .row
-  .large-5.columns
+  .small-5.columns
     = link_to "Fondation Paul Brönnimann", root_path, id: "logo"
-  .large-7.columns
+  .small-7.columns
     %ul#slideshow{data: {orbit: true}}
       %li
         = image_tag "orbit/foram4.jpg", alt: "slide 3"
       %li
         = image_tag "orbit/obadia.jpg", alt: "artwork by Cyril obadia"
 .row
-  .large-8.columns
+  .small-8.columns
     %h2
-      The paul Brönnimann Foundation
+      Promoting research on foraminifera
     %p
-      La Fondation PAUL BRÖNNIMANN regroupe des personnes de l'entourage du scientifique et a pour but de promouvoir l'encouragement de la recherche dans le domaine de la micropaléontologie. Les moyens d'actions de la Fondation sont notamment les revenus du capital et les donations qui lui sont faites.
+      The Paul Brönnimann Foundation was established in 1993 with the objective to support the research on micropaleontology and biology of foraminifera. The Foundation particularly encourages the study of modern foraminifera, including non-fossilized species, which are not very well known even to specialists. We promote the use of genetic and genomic techniques for studying the diversity of living foraminifera, reconstructing their evolutionary relationships and revising their classification.
     %p
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      = "In 2014-2015, the Foundation will support projects concerning <strong>the integrated taxonomy of modern foraminifera</strong>. Its aim is to link traditional morphotaxonomy and molecular data for the description of new foraminiferal species,  taxonomic revisions and other studies of foraminiferal diversity. The Foundation will facilitate access to molecular systematic tools, by providing a platform to obtain genetic data and assisting in their analysis. It can also help with the collection of samples and documentation of the morphology of examined species, if necessary.".html_safe
     .row
-      .large-6.columns
-        = link_to "Apply to FPB award", awards_path, class: "button home-button"
-      .large-6.columns
-        = link_to "Submit artwork", artworks_path, class: "button home-button"
-  .large-4.columns
+      .small-6.columns
+        = link_to "Apply for a FPB grant", awards_path, class: "button home-button"
+  .small-4.columns
     #news.panel
       %h2 News
       %h3= @new.title
-      %p= @new.content
-      = link_to "all published news", news_index_path
+      %p=raw @new.content
+      = link_to "All news", news_index_path
+    #artworks.panel
+      %h2 Foram artworks
+      %p
+        Our artwork gallery presents photos, drawings, poems or any other artwork inspired by the intrinsic beauty of foraminiferal tests, their varied and uncommon forms and particular life traits.
+      = link_to "Artwork gallery", artworks_path

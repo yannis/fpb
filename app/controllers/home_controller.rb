@@ -12,4 +12,8 @@ class HomeController < ApplicationController
 
   def paul_broennimann
   end
+
+  def grants
+    @title = "Grants"
+  end
 end

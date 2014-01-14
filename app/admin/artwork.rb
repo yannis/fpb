@@ -1,12 +1,13 @@
 ActiveAdmin.register Artwork do
 
-  permit_params :title, :content, :author_id, :executed_on, :received_on, :picture
+  permit_params :title, :content, :author_id, :executed_on, :received_on, :picture, :description
 
   filter :title
   filter :content
   filter :author_id
   filter :executed_on
   filter :received_on
+  filter :description
   filter :picture
 
   index do
@@ -17,6 +18,7 @@ ActiveAdmin.register Artwork do
     end
     column :executed_on
     column :received_on
+    column :description
     column "Picture" do |artwork|
       image_tag(artwork.picture.url(:thumb)) if artwork.picture.present?
     end
@@ -32,6 +34,7 @@ ActiveAdmin.register Artwork do
       end
       row :executed_on
       row :received_on
+      row :description
       row :picture do
         image_tag(artwork.picture.url(:thumb)) if artwork.picture.present?
       end
@@ -45,6 +48,7 @@ ActiveAdmin.register Artwork do
       f.input :content
       f.input :executed_on
       f.input :received_on
+      f.input :description
     end
     f.inputs "Author details" do
       f.input :author_id, as: :select, collection: options_from_collection_for_select(Author.all, :id, :full_name, f.object.author_id), include_blank: false

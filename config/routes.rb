@@ -5,7 +5,7 @@ Fpb::Application.routes.draw do
   get "home/committee"
   get "home/paul_broennimann"
   get "home/legacy"
-  get "home/links"
+  get "home/grants"
 
   resources :donations, only: [:index]
   resources :awards, only: [:index]

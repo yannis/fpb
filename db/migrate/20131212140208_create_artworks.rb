@@ -10,5 +10,7 @@ class CreateArtworks < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :artworks, :author_id
   end
 end

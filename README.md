@@ -2,4 +2,4 @@
 
 # README
 
-The new website for the Paul Brönnimann Foundation (hosted at the University of Geneva)
+The new website for the Paul Brönnimann Foundation (hosted by the University of Geneva)

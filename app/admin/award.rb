@@ -30,5 +30,4 @@ ActiveAdmin.register Award do
     end
     f.actions
   end
-
 end
