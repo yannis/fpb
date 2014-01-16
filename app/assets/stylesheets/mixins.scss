@@ -109,3 +109,57 @@ $hide-text-direction: left !default;
     clear: both;
     position: relative;
     height: $footer-height; } }
+
+
+$dropcap-float-position: left !default;
+$dropcap-font-size: 5em !default;
+$dropcap-font-family: inherit !default;
+$dropcap-txt-indent: 0 !default;
+$dropcap-margin: inherit !default;
+$dropcap-padding: inherit !default;
+$dropcap-color: inherit !default;
+$dropcap-line-height: 1 !default;
+$dropcap-bg: transparent !default;
+
+// Use @include dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg);
+// to pass the following arguments below. Feel free to pass in custom
+// values for the variables we've provided.
+//
+// Make sure you add the class “drop-cap” to your markup in order to operate.
+@mixin dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg) {
+  &:first-letter {
+    float: $dropcap-float-position;
+    margin: $dropcap-margin;
+    padding: $dropcap-padding;
+    padding-right: 10px;
+    font-size: $dropcap-font-size;
+    font-family: $dropcap-font-family;
+    line-height: $dropcap-line-height;
+    text-indent: $dropcap-txt-indent;
+    background: $dropcap-bg;
+    color: $dropcap-color;
+  }
+}
+
+// Combats our sibling paragraphs syling and indentation
+// As not to ruin our beautiful drop caps.
+p + .drop-cap {
+  text-indent: 0;
+  margin-top: 0;
+}
+
+.drop-cap {
+  @include dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, 0, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg);
+}
+
+
+/* COLUMNS */
+@mixin columns($count: 3, $gap: 10) {
+  -webkit-column-count: $count;
+  -moz-column-count:    $count;
+  column-count:         $count;
+
+  -webkit-column-gap:   $gap;
+  -moz-column-gap:      $gap;
+  column-gap:           $gap;
+}

@@ -16,7 +16,7 @@ class CommitteeMember < ActiveRecord::Base
     thumb: "100x100#"
   }
   validates_attachment :portrait,
-    presence: true,
+    # presence: true,
     content_type: {
       content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/,
       message: 'file type is not allowed (only jpeg/png/gif images)'

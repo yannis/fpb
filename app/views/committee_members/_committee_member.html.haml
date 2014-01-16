@@ -1,6 +1,4 @@
 %li
-  .panel.clearfix.committee-member
-    = image_tag committee_member.portrait.url(:thumb), class: "th"
-    .left
-      %h5= committee_member.full_name
-      %p= committee_member.function
+  .panel.committee-member
+    %h5= committee_member.full_name
+    %p= committee_member.function

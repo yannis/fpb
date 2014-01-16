@@ -22,6 +22,14 @@ committee_members = [
     email: "maria.holzmann@unige.ch",
     function: "Scientific advisor",
     affiliation: "University of Geneva"
+  },
+  {
+    title: "Dr.",
+    first_name: 'André',
+    last_name: 'Piuz',
+    email: "andre.piuz@ville-ge.ch",
+    function: "Scientific advisor",
+    affiliation: "Museum d'histoire naturelle"
   }
 ]
 
@@ -464,8 +472,8 @@ CommitteeMember.transaction do
       last_name: committee_member[:last_name],
       email: committee_member[:email],
       function: committee_member[:function],
-      affiliation: committee_member[:affiliation],
-      portrait: File.open("#{Rails.root}/db/seed_files/#{committee_member[:last_name].downcase}.jpg")
+      affiliation: committee_member[:affiliation]
+      # portrait: File.open("#{Rails.root}/db/seed_files/#{committee_member[:last_name].downcase}.jpg")
   end
 end
 

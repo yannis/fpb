@@ -1,7 +1,15 @@
+#footer
+  background-color: $verylightgrey
+  border-top: 1px solid $lightgrey
+.h-card
+  margin-top: 1em
 .footer-unige
+  margin-top: 1em
   display: block
-  height: 80px
-  width: 275px
-  @include replace-text(asset-url("logo/logo-unige.jpg"))
+  width: 100%
+  @include replace-text(asset-url("logo/logo-unige.png"), 50%, 0)
   background-size: contain
 
+@media #{$small-up}
+  .footer-unige
+    height: 100px

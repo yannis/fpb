@@ -6,11 +6,27 @@
 //-----------------------------------------
 // Variables come first
 //-----------------------------------------
-
-@import "foundation_and_overrides"
-@import "mixins"
-@import "base"
 @import "variables"
+
+//-----------------------------------------
+// then mixins
+//-----------------------------------------
+@import "mixins"
+
+//-----------------------------------------
+// reset
+//-----------------------------------------
+@import "foundation_and_overrides"
+$base-font-size: 18px !default
+$rem-base: $base-font-size !default
+
+@import "base"
+
+//-----------------------------------------
+// typography
+//-----------------------------------------
+@import "foundation-icons"
+@import "typography"
 
 // layout
 @import "layout/layout"
@@ -18,6 +34,3 @@
 @import "layout/orbit"
 @import "layout/home"
 @import "layout/footer"
-
-// typography
-@import "foundation-icons"

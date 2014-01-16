@@ -4,12 +4,13 @@
     %h1= @title
     %p
       For a few years, the FPB was ditributing an award to scientist active in the foraminifera reaserch field.
-    %ul.small-block-grid-2.large-block-grid-4
+    %ul.small-block-grid-2.medium-block-grid-3.small-block-grid-4
       - for award in @awards
         %li
-          %h3= award.awarded_on.year
-          %p
-            Laureate:
-            = award.laureate
-          %p
-            %em= award.title
+          .panel
+            %h3= award.awarded_on.year
+            %p
+              Laureate:
+              = award.laureate
+            %p
+              %em= award.title

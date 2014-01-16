@@ -1,30 +1,54 @@
 - title @title
 .row
-  .columns.small-12
+  .columns.small-12.medium-12.large-12
     %h1= @title
-    %p
+  .columns.small-12.medium-12.large-12.multi-column
+    %p.drop-cap
       The Foundation promotes artistic projects inspired by the variety of forms and structures in foraminifera and other shelled protists.
     %p
       Our mission is to perpetuate Ernst Haeckel’s tradition to bridge art and science, to link the dazzling array of life forms and their unique aesthetic values. The outline of the organisms so beautifully illustrated in
-      %em “Kunstformen aus dem Meer”
+      %em «Kunstformen aus dem Meer»
       did not change since the last century while the scientific exploration of their diversity and the aesthetic canons moved forward at an extraordinary speed.
     %p
       Every scientist or artist who is fascinated by the universe of these minute architects is welcome to expose his or her artworks in our gallery and support the Foundation.
 
-- @artworks.each do |author,artworks|
-  - arts = artworks.group_by{|a| a.picture.present? ? "pictures" : "text"}
+- unless @grouped_pictures.blank?
   .row
-    .columns.small-12
-      %h2
-        = author.full_name
-        - if author.description
-          %small= author.description
-      - arts.each do |kind,as|
-        - if kind == "pictures"
-          %ul.clearing-thumbs{data: {clearing: true}}
-            = render artworks
-        - else
-          - as.each do |a|
-            = render a
+    .columns.small-12.medium-12.large-12
+      %h2 Pictures
+  - @grouped_pictures.each do |author,artworks|
+    - arts = artworks.group_by{|a| a.picture.present? ? "pictures" : "text"}
+    .row
+      .columns.small-12.medium-12.large-12
+        %h3
+          = author.full_name
+          - if author.description
+            %small= author.description
+        - arts.each do |kind,as|
+          - if kind == "pictures"
+            %ul.clearing-thumbs{data: {clearing: true}}
+              = render artworks
+          - else
+            - as.each do |a|
+              = render a
 
+- unless @grouped_poems.blank?
+  .row
+    .columns.small-12.medium-12.large-12
+      %h2 Poetry
 
+  - @grouped_poems.each do |author,artworks|
+    - arts = artworks.group_by{|a| a.picture.present? ? "pictures" : "text"}
+    .row
+      .columns.small-12.medium-12.large-12
+        %h3
+          = author.full_name
+          - if author.description
+            %small= author.description
+        - arts.each do |kind,as|
+          - if kind == "pictures"
+            %ul.clearing-thumbs{data: {clearing: true}}
+              = render artworks
+          - else
+            - as.each do |a|
+              = render a

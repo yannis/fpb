@@ -17,3 +17,12 @@
 .home-button
   display: block
   // font-size: larger
+
+
+@media #{$small-only}
+  #logo
+    display: block
+    @include replace-text(asset-url("logo/logo.png"))
+    background-size: contain
+    height: 100px
+    margin-bottom: 1em
