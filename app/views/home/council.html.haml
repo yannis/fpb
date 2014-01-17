@@ -3,5 +3,11 @@
   .row
     .small-12.medium-12.large-12.columns
       %h1 The foundation council
-      %ul.council.small-block-grid-1.medium-block-grid-3.large-block-grid-4
+      %ul.council.small-block-grid-1.medium-block-grid-2.large-block-grid-3
         = render @council_members
+  - if @committee_members.present?
+    .row
+      .small-12.medium-12.large-12.columns
+        %h2 Scientific committee
+        %ul.council.small-block-grid-1.medium-block-grid-2.large-block-grid-3
+          = render partial: "council_members/council_member", collection: @committee_members

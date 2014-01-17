@@ -6,7 +6,8 @@ class HomeController < ApplicationController
 
   def council
     @title = "The foundation council"
-    @council_members = CouncilMember.all
+    @council_members = CouncilMember.where("council_members.function != 'Scientific committee'")
+    @committee_members = CouncilMember.where(function: 'Scientific committee').order(:last_name)
   end
 
   def legacy

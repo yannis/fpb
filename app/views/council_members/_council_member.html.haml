@@ -2,4 +2,5 @@
   %li
     .panel.council-member
       %h3= council_member.full_name
-      %p= council_member.function
+      - if council_member.function != "Scientific committee"
+        %p= council_member.function

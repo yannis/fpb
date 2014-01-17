@@ -1,11 +1,13 @@
 class CouncilMember < ActiveRecord::Base
 
   TITLE = ["Mr", "Ms", "Dr.", "Prof."]
+  FUNCTION = ["Chairman", "Secretary", "Scientific advisor", "Scientific committee"]
 
-  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :first_name, :last_name
   validates_uniqueness_of :last_name, :scope => :first_name
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, allow_blank: true
   validates_inclusion_of :title, in: TITLE, allow_nil: true
+  validates_inclusion_of :function, in: FUNCTION, allow_nil: true
 
   has_attached_file :portrait, styles: {
     original: "",

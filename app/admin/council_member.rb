@@ -16,7 +16,7 @@ ActiveAdmin.register CouncilMember do
     column :email
     column :affiliation
     column "Portrait" do |author|
-      image_tag(author.portrait.url(:thumb))
+      image_tag(author.portrait.url(:thumb)) if author.portrait.present?
     end
     default_actions
   end
@@ -30,7 +30,7 @@ ActiveAdmin.register CouncilMember do
       row :email
       row :affiliation
       row :portrait do
-        image_tag(author.portrait.url(:thumb))
+        image_tag(author.portrait.url(:thumb)) if author.portrait.present?
       end
     end
     active_admin_comments
@@ -38,10 +38,10 @@ ActiveAdmin.register CouncilMember do
 
   form do |f|
     f.inputs "Author details" do
-      f.input :title
+      f.input :title, as: :select, collection: CouncilMember::TITLE, include_blank: false
       f.input :first_name
       f.input :last_name
-      f.input :function
+      f.input :function, as: :select, collection: CouncilMember::FUNCTION, include_blank: false
       f.input :email
       f.input :affiliation
       f.input :portrait, :hint => (f.object.portrait.present? ? f.template.image_tag(f.object.portrait.url(:thumb)) : "no portrait yet")
