@@ -1,26 +1,31 @@
-.fixed
-  %nav.top-bar{data: {topbar: true}}
-    %ul.title-area
-      %li.name
-        %h1
-          = link_to "fpb", root_path, id: "nav-mini-logo"
-      %li.toggle-topbar.menu-icon
-        =link_to "#" do
-          %span Menu
-    %section.top-bar-section
-      %ul.right
-        %li{class: (request.path == root_path ? "has-dropdown active" : "has-dropdown")}
-          = link_to "The foundation", root_path
-          %ul.dropdown
-            %li= link_to "Paul Brönnimann", home_paul_broennimann_path
-            %li= link_to "Legacy", home_legacy_path
-            %li= link_to "Council", home_council_path
-            %li= link_to "The award", awards_path
-        %li{class: (request.path == home_grants_path ? "active" : "")}
-          = link_to "Grants", home_grants_path
-        %li{class: (request.path == donations_path ? "active" : "")}
-          = link_to "Donations", donations_path
-        %li{class: (request.path == artworks_path ? "active" : "")}
-          = link_to "Artworks", artworks_path
-        %li{class: (request.path == links_path ? "active" : "")}
-          = link_to "Links", links_path
+- cache ["navigation", request.path] do
+  .fixed
+    %nav.top-bar{data: {topbar: true}}
+      %ul.title-area
+        %li.name
+          %h1
+            = link_to "fpb", root_path, id: "nav-mini-logo"
+        %li.toggle-topbar.menu-icon
+          =link_to "#" do
+            %span Menu
+      %section.top-bar-section
+        %ul.right
+          %li{class: ([root_path, home_paul_broennimann_path, home_legacy_path, home_council_path, awards_path].include?(request.path) ? "has-dropdown active" : "has-dropdown")}
+            = link_to "The foundation", root_path
+            %ul.dropdown
+              %li{class: (request.path == home_paul_broennimann_path ? "active" : "")}
+                = link_to "Paul Brönnimann", home_paul_broennimann_path
+              %li{class: (request.path == home_legacy_path ? "active" : "")}
+                = link_to "Legacy", home_legacy_path
+              %li{class: (request.path == home_council_path ? "active" : "")}
+                = link_to "Council", home_council_path
+              %li{class: (request.path == awards_path ? "active" : "")}
+                = link_to "Award", awards_path
+          %li{class: (request.path == home_grants_path ? "active" : "")}
+            = link_to "Grants", home_grants_path
+          %li{class: (request.path == donations_path ? "active" : "")}
+            = link_to "Donations", donations_path
+          %li{class: (request.path == artworks_path ? "active" : "")}
+            = link_to "Artworks", artworks_path
+          %li{class: (request.path == links_path ? "active" : "")}
+            = link_to "Links", links_path

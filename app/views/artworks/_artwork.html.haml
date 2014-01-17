@@ -1,9 +1,6 @@
-- if artwork.picture.present?
-  %li
-    = link_to image_tag(artwork.picture.url(:thumb), class: "th", data: {caption: artwork.title}), image_path(artwork.picture.url(:original))
-- if artwork.content
-  .columns.small-6
-    %h3
+- cache ["artwork", artwork] do
+  .columns.small-12.medium-6.large-6
+    %h4
       = artwork.title
       - if artwork.description
         %br

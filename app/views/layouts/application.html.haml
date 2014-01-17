@@ -2,13 +2,13 @@
 %html
   %head
     %meta{:charset => "UTF-8"}
-    %title= yield(:title) || "The Paul Brönnnimann Foundation"
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{:name=>"author", :content=>"Yannis Jaquet"}/
     %meta{:name => "robots", :content => "all"}
     %meta{:name => 'description', :content => "The Paul Brönnnimann Foundation website"}
     = csrf_meta_tag
+    %title= yield(:title) || "The Paul Brönnnimann Foundation"
     = stylesheet_link_tag 'application', media: nil, rel: "stylesheet"
     = javascript_include_tag "polyfills"
     = favicon_link_tag

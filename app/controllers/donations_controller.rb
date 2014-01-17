@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   def index
-    @donations = Donation.all
     @title = "Donations"
+    @donations = Donation.all
   end
 end

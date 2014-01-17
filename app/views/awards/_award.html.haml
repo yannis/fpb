@@ -1,5 +1,9 @@
-%h3= award.awarded_on.year
-%p
-  Laureate:
-  = award.laureate
-%p= award.title
+- cache ["award", award] do
+  %li
+    .panel
+      %h3= award.awarded_on.year
+      %p
+        Laureate:
+        = award.laureate
+      %p
+        %em= award.title

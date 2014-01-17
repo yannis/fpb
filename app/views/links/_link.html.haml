@@ -1,1 +1,2 @@
-%li= link_to link.title, link.url, target: "_blank"
+- cache ["link", link] do
+  %li= link_to link.title, link.url, target: "_blank"

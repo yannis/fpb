@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-committee_members = [
+council_members = [
   {
     title: "Prof.",
     first_name: 'Jan',
@@ -464,16 +464,16 @@ links = [
   }
 ]
 
-CommitteeMember.delete_all
-CommitteeMember.transaction do
-  for committee_member in committee_members
-    CommitteeMember.create! title: committee_member[:title],
-      first_name: committee_member[:first_name],
-      last_name: committee_member[:last_name],
-      email: committee_member[:email],
-      function: committee_member[:function],
-      affiliation: committee_member[:affiliation]
-      # portrait: File.open("#{Rails.root}/db/seed_files/#{committee_member[:last_name].downcase}.jpg")
+CouncilMember.delete_all
+CouncilMember.transaction do
+  for council_member in council_members
+    CouncilMember.create! title: council_member[:title],
+      first_name: council_member[:first_name],
+      last_name: council_member[:last_name],
+      email: council_member[:email],
+      function: council_member[:function],
+      affiliation: council_member[:affiliation]
+      # portrait: File.open("#{Rails.root}/db/seed_files/#{council_member[:last_name].downcase}.jpg")
   end
 end
 

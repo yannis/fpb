@@ -1,5 +1,7 @@
-.row
-  .small-12.columns
-    %h1 The foundation council
-    %ul.council.small-block-grid-2.medium-block-grid-3.small-block-grid-4
-      = render @council_members
+- title @title
+- cache "council" do
+  .row
+    .small-12.medium-12.large-12.columns
+      %h1 The foundation council
+      %ul.council.small-block-grid-1.medium-block-grid-3.large-block-grid-4
+        = render @council_members
