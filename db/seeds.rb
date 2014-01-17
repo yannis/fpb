@@ -263,7 +263,7 @@ authors = [
 news = [
   {
     title: "FPB in Chile",
-    content: "The FPB will sponsor the session “New classification of Foraminifera: bridging molecules and morphology” during the <a href='http://www2.udec.cl/forams2014'>International Symposium on Foraminifera 2014</a>, in Concepcion, Chile, on January 21st, 2014.",
+    content: "<p>The FPB will sponsor the session “New classification of Foraminifera: bridging molecules and morphology” during the <a href='http://www2.udec.cl/forams2014'>International Symposium on Foraminifera 2014</a>, in Concepcion, Chile, on January 21st, 2014.<p>",
     published_on: Date.today
   }
 ]

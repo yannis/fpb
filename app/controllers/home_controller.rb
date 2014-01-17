@@ -3,8 +3,8 @@ class HomeController < ApplicationController
     @new = New.order("news.published_on DESC").first
   end
 
-  def committee
-    @committee_members = CommitteeMember.all
+  def council
+    @council_members = CouncilMember.all
   end
 
   def legacy

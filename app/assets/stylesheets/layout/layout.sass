@@ -1,22 +1,17 @@
-@include sticky-footer(250px, "#container", "#root-footer", "#footer")
 .button .fi:before
   font:
     size: 1.6184em
   margin-left: 0.6184em
   line-height: 1em
   vertical-align: bottom
-
-@media #{$small-up}
-  @include sticky-footer(400px, "#container", "#root-footer", "#footer")
-
+section[role='main']
+  padding-bottom: 1.6184em
 
 @media #{$medium-up}
-  @include sticky-footer(290px, "#container", "#root-footer", "#footer")
   .multi-column
     @include columns(2, 10)
 
 @media #{$large-up}
-  @include sticky-footer(300px, "#container", "#root-footer", "#footer")
   section[role='main']
     padding-top: 1.6184em
   .multi-column

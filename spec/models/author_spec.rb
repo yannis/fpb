@@ -12,7 +12,7 @@ describe Author do
   }
   it { should validate_attachment_size(:portrait).less_than(10.megabytes) }
 
-  describe "a committee member" do
+  describe "a council member" do
     subject {build :author, first_name: 'Lars', last_name: 'Von Trier'}
     its(:full_name) {should eql "Lars Von Trier"}
   end

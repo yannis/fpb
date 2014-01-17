@@ -4,9 +4,15 @@
   .small-12.medium-7.large-7.columns.hide-for-small-only
     %ul#slideshow{data: {orbit: true}}
       %li
-        = image_tag "orbit/foram4.jpg", alt: "slide 3"
+        = image_tag "orbit/neoprotelphidium.jpg", alt: "Neoprotelphidium by Yvan Voltski", size: "408x350"
       %li
-        = image_tag "orbit/obadia.jpg", alt: "artwork by Cyril obadia"
+        = image_tag "orbit/psammosphaera.jpg", alt: "Psammosphaera by Sam Bowser", size: "368x350"
+      %li
+        = image_tag "orbit/obadia.jpg", alt: "artwork by Cyril obadia", size: "454x350"
+      %li
+        = image_tag "orbit/saccammina.jpg", alt: "Saccammina by Yvan Voltski", size: "481x350"
+      %li
+        = image_tag "orbit/crithionina.jpg", alt: "Crithionina by Sam Bowser", size: "459x350"
 .row
   .small-12.medium-8.large-8.columns
     %h1
@@ -21,11 +27,19 @@
   .small-12.medium-4.large-4.columns
     #news.panel
       %h2 News
-      %h3= @new.title
-      %p=raw @new.content
-      = link_to "All news", news_index_path
+      %hr
+      %h3
+        = @new.title
+        %br
+        %small
+          published on
+          = @new.published_on.to_s(:day_month_year)
+      =raw @new.content
+      = link_to "All news", news_index_path, class: "button small"
+
     #artworks.panel
       %h2 Foram artworks
+      %hr
       %p
         Our artwork gallery presents photos, drawings, poems or any other artwork inspired by the intrinsic beauty of foraminiferal tests, their varied and uncommon forms and particular life traits.
-      = link_to "Artwork gallery", artworks_path
+      = link_to "Artwork gallery", artworks_path, class: "button small"

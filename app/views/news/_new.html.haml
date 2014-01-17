@@ -1,7 +1,8 @@
 .panel.small-4.columns
   %h2
     = new.title
+    %br
     %small
-      %em published on
+      published on
       = new.published_on.to_s(:day_month_year)
-  = new.content
+  =raw new.content

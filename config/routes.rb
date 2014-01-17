@@ -2,7 +2,7 @@ Fpb::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get "home/index"
-  get "home/committee"
+  get "home/council"
   get "home/paul_broennimann"
   get "home/legacy"
   get "home/grants"

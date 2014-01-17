@@ -1,3 +1,4 @@
+@include sticky-footer(250px, "#container", "#root-footer", "#footer")
 #footer
   background-color: $verylightgrey
   border-top: 1px solid $lightgrey
@@ -10,6 +11,21 @@
   @include replace-text(asset-url("logo/logo-unige.png"), 50%, 0)
   background-size: contain
 
+.button .fi:before
+  font:
+    size: 1.6184em
+  margin-left: 0.6184em
+  line-height: 1em
+  vertical-align: bottom
+
+
 @media #{$small-up}
+  @include sticky-footer(400px, "#container", "#root-footer", "#footer")
   .footer-unige
     height: 100px
+
+@media #{$medium-up}
+  @include sticky-footer(290px, "#container", "#root-footer", "#footer")
+
+@media #{$large-up}
+  @include sticky-footer(300px, "#container", "#root-footer", "#footer")
