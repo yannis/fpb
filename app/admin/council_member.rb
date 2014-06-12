@@ -18,7 +18,7 @@ ActiveAdmin.register CouncilMember do
     column "Portrait" do |author|
       image_tag(author.portrait.url(:thumb)) if author.portrait.present?
     end
-    default_actions
+    actions
   end
 
   show do |author|

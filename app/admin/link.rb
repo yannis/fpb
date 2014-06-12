@@ -9,7 +9,7 @@ ActiveAdmin.register Link do
     column :title
     column :url
     column :description
-    default_actions
+    actions
   end
 
   show do |author|

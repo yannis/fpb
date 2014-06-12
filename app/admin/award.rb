@@ -10,7 +10,7 @@ ActiveAdmin.register Award do
     column :laureate
     column :title
     column :awarded_on
-    default_actions
+    actions
   end
 
   show do |author|

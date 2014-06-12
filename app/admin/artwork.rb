@@ -22,7 +22,7 @@ ActiveAdmin.register Artwork do
     column "Picture" do |artwork|
       image_tag(artwork.picture.url(:thumb)) if artwork.picture.present?
     end
-    default_actions
+    actions
   end
 
   show do |artwork|

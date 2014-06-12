@@ -10,7 +10,7 @@ ActiveAdmin.register Donation do
     column :name
     column :location
     column :donated_on
-    default_actions
+    actions
   end
 
   show do |author|

@@ -9,7 +9,7 @@ ActiveAdmin.register New do
     column :title
     column :content
     column :published_on
-    default_actions
+    actions
   end
 
   show do |author|
