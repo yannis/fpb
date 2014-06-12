@@ -1,41 +1,51 @@
 - title @title
-- cache "home-index" do
-  .row.home-banner
-    .small-12.medium-5.large-5.columns
-      = link_to "Fondation Paul Brönnimann", root_path, id: "logo"
-    .small-12.medium-7.large-7.columns.hide-for-small-only
-      %ul#slideshow{data: {orbit: true}}
-        %li
-          = image_tag "orbit/neoprotelphidium.jpg", alt: "Neoprotelphidium by Yvan Voltski", size: "408x350"
-        %li
-          = image_tag "orbit/psammosphaera.jpg", alt: "Psammosphaera by Sam Bowser", size: "368x350"
-        %li
-          = image_tag "orbit/obadia.jpg", alt: "artwork by Cyril obadia", size: "454x350"
-        %li
-          = image_tag "orbit/saccammina.jpg", alt: "Saccammina by Yvan Voltski", size: "481x350"
-        %li
-          = image_tag "orbit/crithionina.jpg", alt: "Crithionina by Sam Bowser", size: "459x350"
-  .row
-    .small-12.medium-8.large-8.columns
-      %h1
-        Advancing foraminiferal research for science & art
-      %p.drop-cap
-        The Paul Brönnimann Foundation was established in 1993 with the objective to support research on the micropaleontology and biology of foraminifera. The Foundation particularly encourages the study of modern foraminifera, including non-fossilized species, which are not very well known even to specialists. We promote the use of genetic and genomic techniques for studying the diversity of living foraminifera, reconstructing their evolutionary relationships and revising their classification. More broadly, we seek to stimulate the interest in foraminifera of artists who are inspired by the natural world.
-      %p
-        = "In 2014-2015, the Foundation will support projects concerning <strong>the integrated taxonomy of modern foraminifera</strong>. Its aim is to link traditional morphotaxonomy and molecular data for the description of new foraminiferal species, taxonomic revisions and other studies of foraminiferal diversity. The Foundation will facilitate access to molecular systematic tools, by providing a platform to obtain genetic data and assisting in their analysis. It can also help with the collection of samples and documentation of the morphology of examined species.".html_safe
-      .row
-        .small-12.medium-12.large-6.columns
-          = link_to "Apply for a FPB grant", home_grants_path, class: "button home-button"
-    .small-12.medium-4.large-4.columns
-      #news.panel
-        %h2 News
-        %hr
-        = render partial: "home/new", locals: {new: @new}
-        = link_to "All news", news_index_path, class: "button small"
+.row.home-banner
+  .small-12.medium-5.large-5.columns
+    = link_to "Fondation Paul Brönnimann", root_path, id: "logo"
+  .small-12.medium-7.large-7.columns.hide-for-small-only
+    %ul#slideshow{data: {orbit: true}}
+      %li
+        = image_tag "orbit/neoprotelphidium.jpg", alt: "Neoprotelphidium by Yvan Voltski", size: "408x350"
+      %li
+        = image_tag "orbit/psammosphaera.jpg", alt: "Psammosphaera by Sam Bowser", size: "368x350"
+      %li
+        = image_tag "orbit/obadia.jpg", alt: "artwork by Cyril obadia", size: "454x350"
+      %li
+        = image_tag "orbit/saccammina.jpg", alt: "Saccammina by Yvan Voltski", size: "481x350"
+      %li
+        = image_tag "orbit/crithionina.jpg", alt: "Crithionina by Sam Bowser", size: "459x350"
+.row
+  .small-12.medium-8.large-8.columns
+    %h1
+      Advancing foraminiferal research for science & art
+    %p.drop-cap
+      The Paul Brönnimann Foundation was established in 1993 with the objective to support research on the micropaleontology and biology of foraminifera. The Foundation particularly encourages the study of modern foraminifera, including non-fossilized species, which are not very well known even to specialists. We promote the use of genetic and genomic techniques for studying the diversity of living foraminifera, reconstructing their evolutionary relationships and revising their classification. More broadly, we seek to stimulate the interest in foraminifera of artists who are inspired by the natural world.
+    %p
+      = "In 2014-2015, the Foundation will support projects concerning <strong>the integrated taxonomy of modern foraminifera</strong>. Its aim is to link traditional morphotaxonomy and molecular data for the description of new foraminiferal species, taxonomic revisions and other studies of foraminiferal diversity. The Foundation will facilitate access to molecular systematic tools, by providing a platform to obtain genetic data and assisting in their analysis. It can also help with the collection of samples and documentation of the morphology of examined species.".html_safe
+    .row
+      .small-12.medium-12.large-6.columns
+        = link_to "Apply for a FPB grant", home_grants_path, class: "button home-button"
+  .small-12.medium-4.large-4.columns
+    #news.panel
+      %h2 News
+      %hr
+      / = render partial: "home/new", locals: {new: @new}
 
-      #artworks.panel
-        %h2 Foram artworks
-        %hr
-        %p
-          Our artwork gallery presents photos, drawings, poems or any other artwork inspired by the intrinsic beauty of foraminiferal tests, their varied and uncommon forms and particular life traits.
-        = link_to "Artwork gallery", artworks_path, class: "button small"
+      - cache @new do
+        %h3
+          = @new.title
+          %br
+          %small
+            published on
+            = @new.published_on.to_s(:day_month_year)
+        =raw @new.content
+
+
+      = link_to "All news", news_index_path, class: "button small"
+
+    #artworks.panel
+      %h2 Foram artworks
+      %hr
+      %p
+        Our artwork gallery presents photos, drawings, poems or any other artwork inspired by the intrinsic beauty of foraminiferal tests, their varied and uncommon forms and particular life traits.
+      = link_to "Artwork gallery", artworks_path, class: "button small"

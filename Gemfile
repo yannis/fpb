@@ -41,7 +41,6 @@ group :development do
   gem "guard-livereload"
   gem 'guard-rspec', require: false
   gem 'guard-bundler'
-  gem 'guard-spring'
   gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-fchange', require: false
@@ -60,7 +59,7 @@ group :test do
   gem 'email_spec'
   gem "factory_girl_rails"
   gem "selenium-webdriver"
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'capybara-screenshot'# , :require => false
   gem 'simplecov', :require => false
 end
