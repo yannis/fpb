@@ -1,7 +1,7 @@
 class CouncilMember < ActiveRecord::Base
 
   TITLE = ["Mr", "Ms", "Dr.", "Prof."]
-  FUNCTION = ["Chairman", "Secretary", "Scientific advisor", "Scientific committee"]
+  FUNCTION = ["Chairman", "Member", "Scientific advisor", "Scientific committee", "Secretary", "Treasurer"]
 
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :last_name, :scope => :first_name

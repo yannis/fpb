@@ -37,7 +37,10 @@ gem 'devise'
 group :development do
   gem "spring"
   gem 'spring-commands-rspec'
-  gem "capistrano", "~> 2.15"
+  gem "capistrano"
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', '~> 2.0'
   gem "guard-livereload"
   gem 'guard-rspec', require: false
   gem 'guard-bundler'
@@ -61,7 +64,7 @@ group :test do
   gem "selenium-webdriver"
   gem 'shoulda-matchers', require: false
   gem 'capybara-screenshot'# , :require => false
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 # group :test, :development do
