@@ -4,9 +4,10 @@ class Artwork < ActiveRecord::Base
 
   has_attached_file :picture, styles: {
     original: "",
-    s300: "800x800>",
-    s300: "600x600>",
-    s300: "400x400>",
+    s1000: "1000x1000>",
+    s800: "800x800>",
+    s600: "600x600>",
+    s400: "400x400>",
     s300: "300x300>",
     s200: "200x200>",
     s100: "100x100>",

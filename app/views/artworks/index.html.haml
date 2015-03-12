@@ -42,5 +42,10 @@
               %small= author.description
       .row.artworks-author-artworks
         - arts.each do |kind,as|
-          - as.each do |a|
-            = render a
+          %ul
+            - as.each do |a|
+              %li
+                %a{href: "#", data: {"reveal-id" => "artwork-#{a.id}"}}
+                  = a.title
+                %div.reveal-modal{id: "artwork-#{a.id}", data: {reveal: true}}
+                  = render a

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.9'
 gem 'mysql2'
 
 gem 'haml-rails'
@@ -36,6 +36,9 @@ gem 'devise'
 
 group :development do
   gem "spring"
+end
+
+group :development do
   gem 'spring-commands-rspec'
   gem "capistrano"
   gem 'capistrano-rails', '~> 1.1'

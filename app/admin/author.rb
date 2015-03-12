@@ -58,7 +58,7 @@ ActiveAdmin.register Author do
       f.input :last_name
       f.input :email
       f.input :affiliation
-      f.input :affiliationdescription
+      f.input :description
       f.input :portrait, :hint => (f.object.portrait.present? ? f.template.image_tag(f.object.portrait.url(:thumb)) : "no portrait yet")
     end
     f.actions

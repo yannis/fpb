@@ -17,7 +17,7 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(sass|css|js|html|hbs|coffee))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard :rspec,  cmd: "spring rspec --profile --color -f progress --order rand", all_after_pass: false, all_on_start: false, failed_mode: :none do
+guard :rspec,  cmd: "bundle exec rspec --profile --color -f progress --order rand", all_after_pass: false, all_on_start: false, failed_mode: :none do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }

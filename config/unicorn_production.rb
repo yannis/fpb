@@ -11,7 +11,7 @@ timeout 30
 
 # Edit the unicorn.rb to your desire ,it's well commented and please remember to change the port to 8081! NGINX will run on port 8080 with the above nginx.conf, so unicorn cun't run on the same port. The line you have to change for the port should look like this:
 # listen 8080, :tcp_nopush => true
-listen 8085, :tcp_nopush => true
+listen 8084, :tcp_nopush => true
 
 # Preload our app for more speed
 preload_app true

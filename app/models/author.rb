@@ -4,7 +4,8 @@ class Author < ActiveRecord::Base
 
   has_attached_file :portrait, styles: {
     original: "",
-    s300: "400x400>",
+    s600: "600x600>",
+    s400: "400x400>",
     s300: "300x300>",
     s200: "200x200>",
     s100: "100x100>",
