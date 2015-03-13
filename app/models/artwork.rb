@@ -22,4 +22,19 @@ class Artwork < ActiveRecord::Base
     size: {
       less_than: 10.megabytes
   }
+
+  before_save :destroy_picture?
+
+  def picture_delete
+    @picture_delete ||= "0"
+  end
+
+  def picture_delete=(value)
+    @picture_delete = value
+  end
+
+private
+  def destroy_picture?
+    self.picture.clear if @picture_delete == "1"
+  end
 end

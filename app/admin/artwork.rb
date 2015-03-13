@@ -1,6 +1,6 @@
 ActiveAdmin.register Artwork do
 
-  permit_params :title, :content, :author_id, :executed_on, :received_on, :picture, :description
+  permit_params :title, :content, :author_id, :executed_on, :received_on, :picture, :description, :picture_delete
 
   filter :title
   filter :content
@@ -54,7 +54,11 @@ ActiveAdmin.register Artwork do
       f.input :author_id, as: :select, collection: options_from_collection_for_select(Author.all, :id, :full_name, f.object.author_id), include_blank: false
     end
     f.inputs "Media" do
-      f.input :picture, :hint => (f.object.picture.present? ? f.template.image_tag(f.object.picture.url(:thumb)) : "no picture yet")
+      if f.object.picture.present?
+        f.input :picture_delete, label: "Remove picture", as: :boolean, hint: f.template.image_tag(f.object.picture.url(:thumb))
+      else
+        f.input :picture, hint: "no picture yet"
+      end
     end
     f.actions
   end
