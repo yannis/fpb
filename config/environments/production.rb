@@ -79,4 +79,9 @@ Fpb::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.raise_delivery_errors = false
+
+  # Paperclip config:
+  Paperclip.options[:image_magick_path] = "/usr/local/bin/"
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
 end
