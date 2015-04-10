@@ -13,7 +13,7 @@ ActiveAdmin.register Donation do
     actions
   end
 
-  show do |author|
+  show do |artist|
     attributes_table do
       row :name
       row :location
@@ -23,7 +23,7 @@ ActiveAdmin.register Donation do
   end
 
   form do |f|
-    f.inputs "Author details" do
+    f.inputs "Artist details" do
       f.input :name
       f.input :location
       f.input :donated_on

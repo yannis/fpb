@@ -13,7 +13,7 @@ ActiveAdmin.register Award do
     actions
   end
 
-  show do |author|
+  show do |artist|
     attributes_table do
       row :laureate
       row :title
@@ -23,7 +23,7 @@ ActiveAdmin.register Award do
   end
 
   form do |f|
-    f.inputs "Author details" do
+    f.inputs "Artist details" do
       f.input :laureate
       f.input :title
       f.input :awarded_on

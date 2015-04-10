@@ -12,7 +12,7 @@ ActiveAdmin.register New do
     actions
   end
 
-  show do |author|
+  show do |artist|
     attributes_table do
       row :title
       row :content

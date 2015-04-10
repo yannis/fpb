@@ -1,6 +1,6 @@
 class Artwork < ActiveRecord::Base
-  belongs_to :author, inverse_of: :artworks
-  validates_presence_of :title, :author_id
+  belongs_to :artist, inverse_of: :artworks
+  validates_presence_of :title, :artist_id
 
   has_attached_file :picture, styles: {
     original: "",
@@ -24,6 +24,14 @@ class Artwork < ActiveRecord::Base
   }
 
   before_save :destroy_picture?
+
+  def self.pictures
+    where("artworks.picture_file_size IS NOT NULL")
+  end
+
+  def self.text
+    where("artworks.picture_file_size IS NULL AND artworks.content IS NOT NULL")
+  end
 
   def picture_delete
     @picture_delete ||= "0"

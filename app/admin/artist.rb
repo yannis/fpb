@@ -1,4 +1,4 @@
-ActiveAdmin.register Author do
+ActiveAdmin.register Artist do
 
 
   # See permitted parameters documentation:
@@ -16,7 +16,7 @@ ActiveAdmin.register Author do
 
   # controller do
   #   def permitted_params
-  #     params.permit(:author => [:first_name, :last_name, :email, :affiliation, :portrait])
+  #     params.permit(:artist => [:first_name, :last_name, :email, :affiliation, :portrait])
   #   end
   # end
   permit_params :first_name, :last_name, :email, :affiliation, :portrait, :description
@@ -32,13 +32,13 @@ ActiveAdmin.register Author do
     column :email
     column :affiliation
     column :description
-    column "Portrait" do |author|
-      image_tag(author.portrait.url(:thumb)) if author.portrait.present?
+    column "Portrait" do |artist|
+      image_tag(artist.portrait.url(:thumb)) if artist.portrait.present?
     end
     actions
   end
 
-  show do |author|
+  show do |artist|
     attributes_table do
       row :first_name
       row :last_name
@@ -46,14 +46,14 @@ ActiveAdmin.register Author do
       row :affiliation
       row :description
       row :portrait do
-        image_tag(author.portrait.url(:thumb)) if author.portrait.present?
+        image_tag(artist.portrait.url(:thumb)) if artist.portrait.present?
       end
     end
     active_admin_comments
   end
 
   form do |f|
-    f.inputs "Author details" do
+    f.inputs "Artist details" do
       f.input :first_name
       f.input :last_name
       f.input :email

@@ -12,7 +12,7 @@ ActiveAdmin.register Link do
     actions
   end
 
-  show do |author|
+  show do |artist|
     attributes_table do
       row :title
       row :url

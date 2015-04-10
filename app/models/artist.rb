@@ -1,5 +1,5 @@
-class Author < ActiveRecord::Base
-  has_many :artworks, inverse_of: :author, dependent: :destroy
+class Artist < ActiveRecord::Base
+  has_many :artworks, inverse_of: :artist, dependent: :destroy
   validates_presence_of :first_name, :last_name
 
   has_attached_file :portrait, styles: {
@@ -19,6 +19,10 @@ class Author < ActiveRecord::Base
     size: {
       less_than: 10.megabytes
   }
+
+  def to_param
+    [id, full_name.parameterize("-")].join("-")
+  end
 
   def full_name
     [first_name, last_name].compact.join(' ')

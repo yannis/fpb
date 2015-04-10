@@ -1,0 +1,23 @@
+- title @title
+.row
+  .columns.small-12.medium-12.large-12
+    %h1= @title
+    - if @artist.description
+      %p=raw @artist.description
+
+  - if @pictures.present?
+    .columns.small-12.medium-12.large-12
+      %h2 Pictures
+      %ul.artworks-artist-artworks.clearing-thumbs{data: {clearing: true}}
+        = render partial: "artworks/picture", collection: @pictures, as: "artwork"
+
+  - if @poems.present?
+    .columns.small-12.medium-12.large-12
+      %h2 Poetry
+      %ul
+        - @poems.each do |poem|
+          %li
+            %a{href: "#", data: {"reveal-id" => "artwork-#{poem.id}"}}
+              = poem.title
+            %div.reveal-modal{id: "artwork-#{poem.id}", data: {reveal: true}}
+              = render poem

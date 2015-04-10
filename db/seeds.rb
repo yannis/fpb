@@ -232,7 +232,7 @@ stagle isotope compositions",
   }
 ]
 
-authors = [
+artists = [
   {
     first_name: "Cyril",
     last_name: "Obadia"
@@ -268,112 +268,112 @@ news = [
   }
 ]
 
-Author.delete_all
-Author.transaction do
-  for author in authors
-    Author.create! first_name: author[:first_name], last_name: author[:last_name], email: author[:email], description: author[:description]
+Artist.delete_all
+Artist.transaction do
+  for artist in artists
+    Artist.create! first_name: artist[:first_name], last_name: artist[:last_name], email: artist[:email], description: artist[:description]
   end
 end
 
 artworks = [
   {
     title: "Benthic foraminifers",
-    author_id: Author.where(last_name: "Obadia").first.id,
+    artist_id: Artist.where(last_name: "Obadia").first.id,
     picture_name: "benthic_forams"
   },
   {
     title: "Undetermined Saccamminid WS07-SL_sp2, the White Sea",
-    author_id: Author.where(last_name: "Voltsky").first.id,
+    artist_id: Artist.where(last_name: "Voltsky").first.id,
     picture_name: "saccammina"
   },
   {
     title: "Cribroelphidium subarcticum on red algae, the White Sea",
-    author_id: Author.where(last_name: "Voltsky").first.id,
+    artist_id: Artist.where(last_name: "Voltsky").first.id,
     picture_name: "subarcticum"
   },
   {
     title: "Neoprotelphidium niveum, the White Sea",
-    author_id: Author.where(last_name: "Voltsky").first.id,
+    artist_id: Artist.where(last_name: "Voltsky").first.id,
     picture_name: "neoprotelphidium"
   },
   {
     title: "Astrammina rara",
-    author_id: Author.where(last_name: "Von Rosk").first.id,
+    artist_id: Artist.where(last_name: "Von Rosk").first.id,
     picture_name: "astrammina"
   },
   {
     title: "Notodendrodes antarkticos",
-    author_id: Author.where(last_name: "Von Rosk").first.id,
+    artist_id: Artist.where(last_name: "Von Rosk").first.id,
     picture_name: "notodendrodes"
   },
   {
     title: "Silver saccammina",
-    author_id: Author.where(last_name: "Von Rosk").first.id,
+    artist_id: Artist.where(last_name: "Von Rosk").first.id,
     picture_name: "silver_saccammina"
   },
   {
     title: "Astrammina triangularis",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "astrammina_triangularis"
   },
   {
     title: "Cornuspira antarctca",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "cornuspira_antarctca_2"
   },
   {
     title: "Cornuspira antarctca on paleontology slide",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "cornuspira_antarctca"
   },
   {
     title: "Crithionina delacai",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "crithionina_delacai"
   },
   {
     title: "Crithionina",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "crithionina"
   },
   {
     title: "Gromia",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "gromia"
   },
   {
     title: "Notodendrodes Antarctikos",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "notodendrodes_antarctikos"
   },
   {
     title: "Notodendrodes hyalinosphaira",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "notodendrodes_hyalinosphaira"
   },
   {
     title: "Notrhabdammina",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "notrhabdammina"
   },
   {
     title: "Psammosphaera",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "psammosphaera"
   },
   {
     title: "Purgo (in situ)",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "purgo_in_situ"
   },
   {
     title: "Pyrgo, A Tribute To Warhol",
-    author_id: Author.where(last_name: "Bowser").first.id,
+    artist_id: Artist.where(last_name: "Bowser").first.id,
     picture_name: "pyrgo_tribute_to_warhol"
   },
   {
     title: "The four seasons",
-    author_id: Author.where(last_name: "Holzmann").first.id,
+    artist_id: Artist.where(last_name: "Holzmann").first.id,
     content: "<p>When is it spring?
 <br>When bumblebees brush their translucent wings
 <br>and blackbirds, each a little king,
@@ -405,7 +405,7 @@ artworks = [
   },
   {
     title: "The Sunday protist",
-    author_id: Author.where(last_name: "Holzmann").first.id,
+    artist_id: Artist.where(last_name: "Holzmann").first.id,
     content: "<p>Have you ever noticed
 <br>how beautiful Gromia is as a protist
 <br>its body a perfect sphere
@@ -420,7 +420,7 @@ artworks = [
   },
   {
     title: "Foraminifera ",
-    author_id: Author.where(last_name: "Szymborska").first.id,
+    artist_id: Artist.where(last_name: "Szymborska").first.id,
     content: "<p>Well then, let's take the Foraminifera. 
 <br>They lived, since they were, and were, since they lived. 
 <br>They did what they could since they were able. 
@@ -481,7 +481,7 @@ Artwork.delete_all
 Artwork.transaction do
   for artwork in artworks
     Artwork.create! title: artwork[:title],
-      author_id: artwork[:author_id],
+      artist_id: artwork[:artist_id],
       picture: (artwork[:picture_name] ? File.open("#{Rails.root}/db/seed_files/#{artwork[:picture_name].downcase}.jpg") : nil),
       content: artwork[:content],
       description: artwork[:description]

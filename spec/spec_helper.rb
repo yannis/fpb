@@ -59,9 +59,9 @@ RSpec.configure do |config|
     it {flash[:alert].should =~ /Please sign in/}
   end
 
-  def should_not_be_authorized
+  def should_not_be_artistized
     it {expect(response.status).to eq 401}
-    it {expect(response.body).to match /You are not authorized to access this page/ }
+    it {expect(response.body).to match /You are not artistized to access this page/ }
   end
 
   def signin(user)

@@ -15,13 +15,13 @@ ActiveAdmin.register CouncilMember do
     column :function
     column :email
     column :affiliation
-    column "Portrait" do |author|
-      image_tag(author.portrait.url(:thumb)) if author.portrait.present?
+    column "Portrait" do |artist|
+      image_tag(artist.portrait.url(:thumb)) if artist.portrait.present?
     end
     actions
   end
 
-  show do |author|
+  show do |artist|
     attributes_table do
       row :title
       row :first_name
@@ -30,14 +30,14 @@ ActiveAdmin.register CouncilMember do
       row :email
       row :affiliation
       row :portrait do
-        image_tag(author.portrait.url(:thumb)) if author.portrait.present?
+        image_tag(artist.portrait.url(:thumb)) if artist.portrait.present?
       end
     end
     active_admin_comments
   end
 
   form do |f|
-    f.inputs "Author details" do
+    f.inputs "Artist details" do
       f.input :title, as: :select, collection: CouncilMember::TITLE, include_blank: false
       f.input :first_name
       f.input :last_name

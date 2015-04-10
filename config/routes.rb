@@ -9,6 +9,7 @@ Fpb::Application.routes.draw do
 
   resources :donations, only: [:index]
   resources :awards, only: [:index]
+  resources :artists, only: [:show]
   resources :artworks, only: [:index]
   resources :news, only: [:index]
   resources :links, only: [:index]

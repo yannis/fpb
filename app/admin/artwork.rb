@@ -1,10 +1,10 @@
 ActiveAdmin.register Artwork do
 
-  permit_params :title, :content, :author_id, :executed_on, :received_on, :picture, :description, :picture_delete
+  permit_params :title, :content, :artist_id, :executed_on, :received_on, :picture, :description, :picture_delete
 
   filter :title
   filter :content
-  filter :author_id
+  filter :artist_id
   filter :executed_on
   filter :received_on
   filter :description
@@ -13,8 +13,8 @@ ActiveAdmin.register Artwork do
   index do
     column :title
     column :content
-    column "Author" do |artwork|
-      artwork.author.full_name
+    column "Artist" do |artwork|
+      artwork.artist.full_name
     end
     column :executed_on
     column :received_on
@@ -29,8 +29,8 @@ ActiveAdmin.register Artwork do
     attributes_table do
       row :title
       row :content
-      row "Author" do |artwork|
-        artwork.author.full_name
+      row "Artist" do |artwork|
+        artwork.artist.full_name
       end
       row :executed_on
       row :received_on
@@ -50,8 +50,8 @@ ActiveAdmin.register Artwork do
       f.input :received_on
       f.input :description
     end
-    f.inputs "Author details" do
-      f.input :author_id, as: :select, collection: options_from_collection_for_select(Author.all, :id, :full_name, f.object.author_id), include_blank: false
+    f.inputs "Artist details" do
+      f.input :artist_id, as: :select, collection: options_from_collection_for_select(Artist.all, :id, :full_name, f.object.artist_id), include_blank: false
     end
     f.inputs "Media" do
       if f.object.picture.present?

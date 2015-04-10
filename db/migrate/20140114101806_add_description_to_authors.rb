@@ -1,5 +1,5 @@
-class AddDescriptionToAuthors < ActiveRecord::Migration
+class AddDescriptionToArtists < ActiveRecord::Migration
   def change
-    add_column :authors, :description, :text
+    add_column :artists, :description, :text
   end
 end

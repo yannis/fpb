@@ -16,31 +16,31 @@
     .row.artworks
       .columns.small-12.medium-12.large-12
         %h2 Pictures
-    - @grouped_pictures.each do |author,artworks|
+    - @grouped_pictures.each do |artist,artworks|
       - arts = artworks.group_by{|a| a.picture.present? ? "pictures" : "text"}
-      .row.artworks-author
+      .row.artworks-artist
         .columns.small-12.medium-12.large-12
-          %h3.artworks-author-name
-            = author.full_name
-            - if author.description
-              %small= author.description
+          %h3.artworks-artist-name
+            = link_to artist.full_name, artist
+            - if artist.description
+              %small= artist.description
           - arts.each do |kind,as|
-            %ul.artworks-author-artworks.clearing-thumbs{data: {clearing: true}}
+            %ul.artworks-artist-artworks.clearing-thumbs{data: {clearing: true}}
               = render partial: "picture", collection: artworks, as: "artwork"
 
   - if @grouped_poems.present?
     .row.artworks
       .columns.small-12.medium-12.large-12
         %h2 Poetry
-    - @grouped_poems.each do |author,artworks|
+    - @grouped_poems.each do |artist,artworks|
       - arts = artworks.group_by{|a| a.picture.present? ? "pictures" : "text"}
-      .row.artworks-author
+      .row.artworks-artist
         .columns.small-12.medium-12.large-12
-          %h3.artworks-author-name
-            = author.full_name
-            - if author.description
-              %small= author.description
-      .row.artworks-author-artworks
+          %h3.artworks-artist-name
+            = link_to artist.full_name, artist
+            - if artist.description
+              %small= artist.description
+      .row.artworks-artist-artworks
         - arts.each do |kind,as|
           %ul
             - as.each do |a|
