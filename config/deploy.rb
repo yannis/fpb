@@ -1,10 +1,14 @@
-# config valid only for Capistrano 3.1
-lock '3.2.1'
+# config valid only for current version of Capistrano
+lock '3.4.0'
+
+set :application, 'fpb'
 set :repo_url, 'git@github.com:yannis/fpb.git'
 
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
+# Default deploy_to directory is /var/www/my_app_name
+# set :deploy_to, '/var/www/my_app_name'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -19,20 +23,15 @@ set :repo_url, 'git@github.com:yannis/fpb.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/application.yml}
-# set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/application.yml')
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
-# Default value for default_env is {}
-# set :rbenv_path, "/Users/yannis/.rbenv"
-# set :default_environment,           {
-#   "PATH" => "/usr/local/bin:/usr/local/sbin:/Users/yannis/.rbenv/shims:/Users/yannis/.rbenv/bin:$PATH"
-# }
+# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.0.0-p353'
+set :rbenv_ruby, '2.0.0-p594'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} /usr/local/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
@@ -41,34 +40,58 @@ set :rbenv_roles, :all # default value
 set :keep_releases, 5
 server '129.194.57.242', user: 'yannis', roles: %w{web app db}
 
+
 task :staging do
-  set :branch, "master"
+  set :branch, "noname"
   set :stage, 'staging'
-  set :rails_env, 'staging'
-  set :application, 'fpb_staging'
-  set :deploy_to, "/Users/yannis/railsapps/#{fetch(:application)}"
-  set :god_unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn_staging.god"
-  set :god_with_path, "/Users/yannis/.rbenv/shims/god"
 end
 
 
 task :production do
   set :branch, "master"
   set :stage, 'production'
-  set :rails_env, 'production'
-  set :application, 'fpb_production'
-  set :deploy_to, "/Users/yannis/railsapps/#{fetch(:application)}"
-  set :god_unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn_production.god"
-  set :god_with_path, "/Users/yannis/.rbenv/shims/god"
 end
+
+set :rails_env, fetch(:stage)
+set :application, "fpb_#{fetch(:stage)}"
+set :deploy_to, "/Users/yannis/railsapps/#{fetch(:application)}"
+set :eye_unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn_#{fetch(:stage)}.eye"
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 namespace :deploy do
-  task :restart do
+
+  task :start do
     on roles(:app) do
-      execute "kill -s QUIT $(cat #{release_path}/tmp/pids/fpb_#{fetch(:stage)}_unicorn.pid)"
+      execute "/usr/local/bin/eye start #{fetch(:application)}"
     end
   end
+
+  task :stop do
+    on roles(:app) do
+      execute "/usr/local/bin/eye stop #{fetch(:application)}"
+    end
+  end
+
+  task :restart do
+    on roles(:app) do
+      execute "/usr/local/bin/eye stop #{fetch(:application)}"
+      execute "/usr/local/bin/eye l #{fetch(:eye_unicorn_config)}"
+      execute "/usr/local/bin/eye start #{fetch(:application)}"
+      # execute "/usr/local/bin/eye restart #{fetch(:application)}"
+    end
+  end
+
+  desc "Start or reload eye config"
+  task :load_eye do
+    on roles(:app) do
+      execute "/usr/local/bin/eye l #{fetch(:eye_unicorn_config)}"
+    end
+  end
+
 end
 
-# after "deploy:cleanup", "deploy:restart"
-# after "deploy:restart", "airbrake:deploy"
+before "deploy:restart", "deploy:load_eye"
+after "deploy:cleanup", "deploy:restart"
+after "deploy:restart", "airbrake:deploy"
